@@ -10,7 +10,7 @@ body {
   margin-bottom: 15px;
 }
 
-#app {
+.product {
   display: flex;
 }
 
@@ -72,8 +72,4 @@ input {
 textarea {
   width: 100%;
   height: 60px;
-}
-
-.outOfStock {
-  text-decoration: none;
 }
