@@ -17,27 +17,26 @@
             </div>
         
             <div class="product-info">
-              <h1>{{ product }}</h1>
+              <h1>{{ title }}</h1>
               <p v-if="inStock">In Stock</p>
-              <p v-else :class="{ outOfStock: !inStock }">Out of Stock</p>
+              <p v-else>Out of Stock</p>
+              <p>{{ sale }}</p>
         
               <ul>
                 <li v-for="detail in details">{{ detail }}</li>
               </ul>
 
         
-              <div v-for="variant in variants" 
+              <div v-for="(variant, index) in variants" 
                    :key="variant.variantId"
                    class="color-box"
                    :style="{ backgroundColor: variant.variantColor }"
-                   @mouseover="updateProduct(variant.variantImage)">
+                   @mouseover="updateProduct(index)">
               </div>
         
               <button v-on:click="addToCart"
                       :disabed="!inStock"
                       :class="{ disabledButton: !inStock }">Add to cart</button>
-              <button @click="removeFromCart">Remove from cart</button>
-        
         
               <div class="cart">
                 <p>Cart({{ cart }})</p>
@@ -49,6 +48,6 @@
           
         </div> 
         
-         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     </body>
 </html>
